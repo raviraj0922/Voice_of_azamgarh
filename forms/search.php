@@ -10,47 +10,69 @@ if ($use_remote_db) {
     $username = "sql12765093";
     $password = "cwLbYsARir";
     $dbname = "sql12765093";
+    $port = 3306; // Default MySQL port
 } else {
     $servername = "localhost";
     $username = "first_hope";
     $password = "firsthope@123";
     $dbname = "voter_registration";
+    $port = 3306;
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die(json_encode(['error' => "Connection failed: " . $conn->connect_error]));
 }
 
-$name = isset($_GET['name']) ? $_GET['name'] : '';
-$organization = isset($_GET['organization']) ? $_GET['organization'] : '';
-$location = isset($_GET['location']) ? $_GET['location'] : '';
+// Get filter parameters
+$name = isset($_GET['name']) ? trim($_GET['name']) : '';
+$organization = isset($_GET['organization']) ? trim($_GET['organization']) : '';
+$location = isset($_GET['location']) ? trim($_GET['location']) : '';
 
-$sql = "SELECT * FROM serach_detail WHERE 1=1";
+// Base SQL query
+$sql = "SELECT name, organization, location, mobile FROM serach_detail WHERE 1=1";
+$params = [];
+$types = "";
 
+// Add conditions dynamically
 if (!empty($name)) {
-    $sql .= " AND name LIKE '%" . $conn->real_escape_string($name) . "%'";
+    $sql .= " AND name LIKE ?";
+    $params[] = "%" . $name . "%";
+    $types .= "s";
 }
 if (!empty($organization)) {
-    $sql .= " AND organization LIKE '%" . $conn->real_escape_string($organization) . "%'";
+    $sql .= " AND organization LIKE ?";
+    $params[] = "%" . $organization . "%";
+    $types .= "s";
 }
 if (!empty($location)) {
-    $sql .= " AND location LIKE '%" . $conn->real_escape_string($location) . "%'";
+    $sql .= " AND location LIKE ?";
+    $params[] = "%" . $location . "%";
+    $types .= "s";
 }
 
-$result = $conn->query($sql);
+// Prepare and execute query
+$stmt = $conn->prepare($sql);
 
-$data = array();
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
+if ($params) {
+    $stmt->bind_param($types, ...$params);
 }
 
+$stmt->execute();
+$result = $stmt->get_result();
+
+$data = [];
+while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
+
+// Return JSON response
 echo json_encode($data);
 
+// Close resources
+$stmt->close();
 $conn->close();
 ?>

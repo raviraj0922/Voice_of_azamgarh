@@ -2,23 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database configuration for local and remote servers
-$use_remote_db = true; // Set to false if using local database
-
-if ($use_remote_db) {
-    $servername = "sql12.freesqldatabase.com";
-    $username = "sql12765093";
-    $password = "cwLbYsARir";
-    $dbname = "sql12765093";
-} else {
-    $servername = "localhost";
-    $username = "first_hope";
-    $password = "firsthope@123";
-    $dbname = "voter_registration";
-}
+// Database configuration
+$servername = "sql12.freesqldatabase.com";
+$username = "sql12765093";
+$password = "cwLbYsARir";
+$dbname = "sql12765093";
+$port = 3306; // Default MySQL port
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {

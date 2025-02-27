@@ -7,6 +7,7 @@ if ($use_remote_db) {
     $username = "sql12765093";
     $password = "cwLbYsARir";
     $dbname = "sql12765093";
+    $port = 3306; // Default MySQL port
 } else {
     $servername = "localhost";
     $username = "first_hope";

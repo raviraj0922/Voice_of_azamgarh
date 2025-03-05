@@ -274,60 +274,63 @@ thead {
   
       <script>
           function searchDetails() {
-              const name = document.getElementById('name').value.trim();
-              const organization = document.getElementById('organization').value.trim();
-              const location = document.getElementById('location').value.trim();
-              const errorMessage = document.getElementById('error-message');
-  
-              // Validate if at least one search field is filled and organization is selected
-              if (!name && !organization && !location) {
-                  errorMessage.style.display = 'block';
-                  return;
-              } else {
-                  errorMessage.style.display = 'none';
-              }
-  
-              const params = new URLSearchParams();
-              if (name) params.append('name', name);
-              if (organization) params.append('organization', organization);
-              if (location) params.append('location', location);
-  
-              fetch(`forms/search.php?${params.toString()}`)
-                  .then(response => {
-                      if (!response.ok) {
-                          throw new Error('Network response was not ok ' + response.statusText);
-                      }
-                      return response.json();
-                  })
-                  .then(data => {
-                      const resultsContainer = document.getElementById('results');
-                      const noResultsContainer = document.getElementById('no-results');
-                      resultsContainer.innerHTML = '';
-  
-                      if (data.length > 0) {
-                          noResultsContainer.style.display = 'none';
-                          data.forEach(row => {
-                              resultsContainer.innerHTML += `
-                                  <tr>
-                                      <td>${row.name}</td>
-                                      <td>${row.organization}</td>
-                                      <td>${row.location}</td>
-                                      <td><button onclick="showMobile(this, '${row.mobile}')">Show Mobile</button></td>
-                                  </tr>
-                              `;
-                          });
-                      } else {
-                          noResultsContainer.style.display = 'block';
-                      }
-                  })
-                  .catch(error => {
-                      console.error('Error:', error);
-                  });
-          }
-  
-          function showMobile(button, mobile) {
-              button.parentElement.innerHTML = mobile;
-          }
+    const name = document.getElementById('name').value.trim();
+    const organization = document.getElementById('organization').value.trim();
+    const location = document.getElementById('location').value.trim();
+    const errorMessage = document.getElementById('error-message');
+
+    // Validate input
+    if (!name && !organization && !location) {
+        errorMessage.style.display = 'block';
+        return;
+    } else {
+        errorMessage.style.display = 'none';
+    }
+
+    const params = new URLSearchParams();
+    if (name) params.append('name', name);
+    if (organization) params.append('organization', organization);
+    if (location) params.append('location', location);
+
+    // Update the fetch URL to match the correct path to search.php
+    fetch(`https://yourdomain.com/forms/search.php?${params.toString()}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Fetched Data: ", data); // Debugging output
+            const resultsContainer = document.getElementById('results');
+            const noResultsContainer = document.getElementById('no-results');
+            resultsContainer.innerHTML = '';
+
+            if (data.length > 0) {
+                noResultsContainer.style.display = 'none';
+                data.forEach(row => {
+                    resultsContainer.innerHTML += `
+                        <tr>
+                            <td>${row.name}</td>
+                            <td>${row.organization}</td>
+                            <td>${row.location}</td>
+                            <td><button onclick="showMobile(this, '${row.mobile}')">Show Mobile</button></td>
+                        </tr>
+                    `;
+                });
+            } else {
+                noResultsContainer.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+function showMobile(button, mobile) {
+    button.parentElement.innerHTML = mobile;
+}
+
       </script>
   </section>
 

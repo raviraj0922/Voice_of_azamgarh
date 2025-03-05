@@ -11,13 +11,7 @@ if ($use_remote_db) {
     $password = "cwLbYsARir";
     $dbname = "sql12765093";
     $port = 3306; // Default MySQL port
-} else {
-    $servername = "localhost";
-    $username = "first_hope";
-    $password = "firsthope@123";
-    $dbname = "voter_registration";
-    $port = 3306;
-}
+} 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

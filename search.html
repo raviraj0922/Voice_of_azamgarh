@@ -180,8 +180,8 @@ thead {
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="#registration">Registration</a></li>
-          <li><a class="getstarted scrollto" href="contacts.html">Get Contacts</a></li>
+          <li><a class="nav-link scrollto" href="https://voiceofazamgarh.com/#contact">Contact Us</a></li>
+          <li><a class="getstarted scrollto" href="contacts.html">Directory</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -195,144 +195,145 @@ thead {
     
     <section id="features" class="contact section-bg">
       <div class="search-container">
-          <h2>Search the Details</h2>
-          <form id="search-form">
-              <input type="text" id="name" name="name" placeholder="Name">
-              <select id="organization" name="organization" required>
-                  <option value="">Select Organization</option>
-                  <option value="Advertising Services">Advertising Services</option>
-                  <option value="Advocate">Advocate</option>
-                  <option value="Agent">Agent</option>
-                  <option value="Ambulance Service">Ambulance Service</option>
-                  <option value="Architect">Architect</option>
-                  <option value="Arts and Craft">Arts and Craft</option>
-                  <option value="Audio-Video">Audio-Video</option>
-                  <option value="Auto On rent">Auto On rent</option>
-                  <option value="Automobiles">Automobiles</option>
-                  <option value="Cable Network">Cable Network</option>
-                  <option value="Carpenter">Carpenter</option>
-                  <option value="Caters">Caters</option>
-                  <option value="Coaching Institutes">Coaching Institutes</option>
-                  <option value="Coal Depo">Coal Depo</option>
-                  <option value="Color Lab">Color Lab</option>
-                  <option value="Computer Goods">Computer Goods</option>
-                  <option value="Computer Typing">Computer Typing</option>
-                  <option value="Confectionery">Confectionery</option>
-                  <option value="Contractor">Contractor</option>
-                  <option value="Courier Service">Courier Service</option>
-                  <option value="Crane Recovery Service">Crane Recovery Service</option>
-                  <option value="Electrical and Electronics Repairing">Electrical and Electronics Repairing</option>
-                  <option value="Electricals">Electricals</option>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Embroidery">Embroidery</option>
-                  <option value="Fire Fighting">Fire Fighting</option>
-                  <option value="Gas Agency">Gas Agency</option>
-                  <option value="Geet and Sangeet">Geet and Sangeet</option>
-                  <option value="Geet Sangeet Training">Geet Sangeet Training</option>
-                  <option value="General Store">General Store</option>
-                  <option value="Gift Items">Gift Items</option>
-                  <option value="Hardware Tools">Hardware Tools</option>
-                  <option value="Hospital">Hospital</option>
-                  <option value="Import Export">Import Export</option>
-                  <option value="Industry">Industry</option>
-                  <option value="Insurance">Insurance</option>
-                  <option value="Inverter and Battery">Inverter and Battery</option>
-                  <option value="Jewellery">Jewellery</option>
-                  <option value="Kathawachak Bramhan">Kathawachak Bramhan</option>
-                  <option value="Kitchen Ware">Kitchen Ware</option>
-                  <option value="Krashi Beej Vikreta">Krashi Beej Vikreta</option>
-                  <option value="Orchestra and Jagran">Orchestra and Jagran</option>
-                  <option value="Training Centers">Training Centers</option>
-                  <option value="Wedding Cards">Wedding Cards</option>
-                  <!-- Add more options as needed -->
-              </select>
-              <input type="text" id="location" name="location" placeholder="Location">
-              <button type="button" onclick="searchDetails()">Search</button>
-          </form>
-          <div id="results-container">
-              <table>
-                  <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Organization</th>
-                          <th>Location</th>
-                          <th>Mobile</th>
-                      </tr>
-                  </thead>
-                  <tbody id="results">
-                      <!-- Results will be inserted here -->
-                  </tbody>
-              </table>
-          </div>
-          <div id="no-results" style="display: none;">
-              <p>Sorry, there are no current openings that match your search criteria!</p>
-          </div>
-          <div id="error-message" style="display: none;">
-              <p>Please fill out at least one search field and select an organization.</p>
-          </div>
+        <h2>Search the Details</h2>
+        <form id="search-form">
+          <input type="text" id="name" name="name" placeholder="Name">
+          <select id="category" name="category">
+            <option value="">Select Category</option>
+            <option value="Advertising Services">Advertising Services</option>
+            <option value="Advocate">Advocate</option>
+            <option value="Agent">Agent</option>
+            <option value="Ambulance Service">Ambulance Service</option>
+            <option value="Architect">Architect</option>
+            <option value="Arts and Craft">Arts and Craft</option>
+            <option value="Audio-Video">Audio-Video</option>
+            <option value="Auto On rent">Auto On rent</option>
+            <option value="Automobiles">Automobiles</option>
+            <option value="Cable Network">Cable Network</option>
+            <option value="Carpenter">Carpenter</option>
+            <option value="Caters">Caters</option>
+            <option value="Coaching Institutes">Coaching Institutes</option>
+            <option value="Coal Depo">Coal Depo</option>
+            <option value="Color Lab">Color Lab</option>
+            <option value="Computer Goods">Computer Goods</option>
+            <option value="Computer Typing">Computer Typing</option>
+            <option value="Confectionery">Confectionery</option>
+            <option value="Contractor">Contractor</option>
+            <option value="Courier Service">Courier Service</option>
+            <option value="Crane Recovery Service">Crane Recovery Service</option>
+            <option value="Electrical and Electronics Repairing">Electrical and Electronics Repairing</option>
+            <option value="Electricals">Electricals</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Embroidery">Embroidery</option>
+            <option value="Fire Fighting">Fire Fighting</option>
+            <option value="Gas Agency">Gas Agency</option>
+            <option value="Geet and Sangeet">Geet and Sangeet</option>
+            <option value="Geet Sangeet Training">Geet Sangeet Training</option>
+            <option value="General Store">General Store</option>
+            <option value="Gift Items">Gift Items</option>
+            <option value="Hardware Tools">Hardware Tools</option>
+            <option value="Hospital">Hospital</option>
+            <option value="Import Export">Import Export</option>
+            <option value="Industry">Industry</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Inverter and Battery">Inverter and Battery</option>
+            <option value="Jewellery">Jewellery</option>
+            <option value="Kathawachak Bramhan">Kathawachak Bramhan</option>
+            <option value="Kitchen Ware">Kitchen Ware</option>
+            <option value="Krashi Beej Vikreta">Krashi Beej Vikreta</option>
+            <option value="Orchestra and Jagran">Orchestra and Jagran</option>
+            <option value="Training Centers">Training Centers</option>
+            <option value="Wedding Cards">Wedding Cards</option>
+          </select>
+          <input type="text" id="address" name="address" placeholder="Address">
+          <button type="button" onclick="searchDetails()">Search</button>
+        </form>
+    
+        <div id="results-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Address</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody id="results">
+              <!-- Results will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+    
+        <div id="no-results" style="display: none;">
+          <p>Sorry, no results match your search!</p>
+        </div>
+    
+        <div id="error-message" style="display: none;">
+          <p>Please fill at least one search field.</p>
+        </div>
       </div>
-  
+    
       <script>
-          function searchDetails() {
-    const name = document.getElementById('name').value.trim();
-    const organization = document.getElementById('organization').value.trim();
-    const location = document.getElementById('location').value.trim();
-    const errorMessage = document.getElementById('error-message');
-
-    // Validate input
-    if (!name && !organization && !location) {
-        errorMessage.style.display = 'block';
-        return;
-    } else {
-        errorMessage.style.display = 'none';
-    }
-
-    const params = new URLSearchParams();
-    if (name) params.append('name', name);
-    if (organization) params.append('organization', organization);
-    if (location) params.append('location', location);
-
-    // Update the fetch URL to match the correct path to search.php
-    fetch(`https://yourdomain.com/forms/search.php?${params.toString()}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Fetched Data: ", data); // Debugging output
-            const resultsContainer = document.getElementById('results');
-            const noResultsContainer = document.getElementById('no-results');
-            resultsContainer.innerHTML = '';
-
-            if (data.length > 0) {
-                noResultsContainer.style.display = 'none';
-                data.forEach(row => {
-                    resultsContainer.innerHTML += `
-                        <tr>
-                            <td>${row.name}</td>
-                            <td>${row.organization}</td>
-                            <td>${row.location}</td>
-                            <td><button onclick="showMobile(this, '${row.mobile}')">Show Mobile</button></td>
-                        </tr>
-                    `;
-                });
-            } else {
-                noResultsContainer.style.display = 'block';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
-
-function showMobile(button, mobile) {
-    button.parentElement.innerHTML = mobile;
-}
-
+        let jsonData = []; // store loaded JSON data
+    
+        // Load the JSON file once
+        fetch('contacts.json')
+          .then(response => response.json())
+          .then(data => {
+            jsonData = data;
+          })
+          .catch(error => console.error('Error loading JSON:', error));
+    
+        function searchDetails() {
+          const name = document.getElementById('name').value.trim().toLowerCase();
+          const category = document.getElementById('category').value.trim();
+          const address = document.getElementById('address').value.trim().toLowerCase();
+          const errorMessage = document.getElementById('error-message');
+          const resultsContainer = document.getElementById('results');
+          const noResultsContainer = document.getElementById('no-results');
+    
+          // Validate input
+          if (!name && !category && !address) {
+            errorMessage.style.display = 'block';
+            return;
+          } else {
+            errorMessage.style.display = 'none';
+          }
+    
+          // Filter data
+          const filtered = jsonData.filter(row => {
+            const matchName = name ? row.name.toLowerCase().includes(name) : true;
+            const matchCategory = category ? row.category === category : true;
+            const matchAddress = address ? row.address.toLowerCase().includes(address) : true;
+            return matchName && matchCategory && matchAddress;
+          });
+    
+          // Clear previous results
+          resultsContainer.innerHTML = '';
+    
+          if (filtered.length > 0) {
+            noResultsContainer.style.display = 'none';
+            filtered.forEach(row => {
+              resultsContainer.innerHTML += `
+                <tr>
+                  <td>${row.name}</td>
+                  <td>${row.category}</td>
+                  <td>${row.address}</td>
+                  <td><button onclick="showContact(this, '${row.contact}')">View Contact</button></td>
+                </tr>
+              `;
+            });
+          } else {
+            noResultsContainer.style.display = 'block';
+          }
+        }
+    
+        function showContact(button, contact) {
+          button.parentElement.innerHTML = contact;
+        }
       </script>
-  </section>
+    </section>
 
     <!-- End Breadcrumbs -->
   </main>

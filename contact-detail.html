@@ -44,96 +44,120 @@
   <!-- Preview for photo and identity CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
-.contact-container {
+    .contact-container {
   display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  min-height: 30vh;
+  padding: 40px;
 }
 
-.contact-card {
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.organization {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.contact-image {
-  width: 120px;
-  height: 150px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background: #f9f9f9;
+.org-logo {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
 }
 
-.contact-details {
-  flex: 1;
+.contact-details h3 {
+  font-size: 18px;
+  color: #2d8f74;
+  margin-bottom: 10px;
 }
 
 .contact-details p {
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
-.view-button {
-  background: #1976D2;
-  color: white;
+.direction-btn {
+  background: #445e77;
+  color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 30px;
   cursor: pointer;
+  width: 100%;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: #eaf6f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-form p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="phone"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   margin-top: 15px;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
+.contact-form .form-row input[type="text"] {
+  flex: 1;
 }
-.pagination button {
-  padding: 6px 12px;
+
+.contact-form textarea {
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.contact-form button {
+  width: 100%;
+  background: #445e77;
+  color: #fff;
+  padding: 12px;
   border: none;
-  background-color: #eee;
+  border-radius: 30px;
   cursor: pointer;
 }
-.pagination button.active {
-  background-color: #007bff;
-  color: white;
-}
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-#nextBtn {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* --- Responsive adjustments --- */
-@media (max-width: 600px) {
-  .contact-card {
-    flex-direction: column; /* stack image above details */
-    align-items: center;
-  }
-
-  .contact-image {
-    width: 100px;
-    height: 125px;
-  }
-
-  .view-button {
-    width: auto; /* let button shrink back */
-  }
-}
-</style>
-
+  </style>
+  
 </head>
 
 <body>
@@ -162,122 +186,76 @@
     <!-- ======= Breadcrumbs ======= -->
     
     <section id="contact" class="contact section-bg">
-      <div class="row">
-        <div class="pt-5">
-          <div class="section-title">
-            <h2>Contact Directory</h2>
+      <div class="section-title mt-5">
+        <h2>Contact Details</h2>
+      </div>
+      <div class="contact-container">
+        <!-- Left Side: Contact Info -->
+        <div class="contact-info">
+          <h2 class="text-center">Get in touch</h2>
+          <div class="organization">
+            <div class="org-logo" id="orgProfile"></div>
+            <div class="org-details">
+              <strong id="orgName">Organization Name</strong><br>
+              <span id="orgCategory">Category</span><br>
+            </div>
           </div>
-          <div class="contact-container" id="contactContainer"></div>
-
-          <div class="pagination"></div>
+          <div class="contact-details">
+            <h3>Contact Information</h3>
+            <div class="mt-4"><i class="bi bi-geo-alt"></i>&nbsp;&nbsp; <span id="orgAddress">Address</span></div>
+            <div class="mt-3"><i class="bi bi-telephone"></i>&nbsp;&nbsp; <span id="orgContact">000-000-0000</span></div>
+            <div class="mt-3"><i class="bi bi-envelope"></i>&nbsp;&nbsp; <span id="orgEmail"> thevoiceofazamgarh@gmail.com</span></div>
+          </div>
+          <button class="direction-btn mt-4">Get Direction</button>
         </div>
+    
+        <!-- Right Side: Contact Form -->
+        <div class="contact-form">
+          <h2 class="text-center">Contact form</h2>
+          <p>If you have query related the contact directory feel free to contact us</p>
+          <form>
+            <div class="form-row">
+              <input type="text" placeholder="First name">
+              <input type="text" placeholder="Last name">
+            </div>
+            <input type="email" placeholder="Email">
+            <input type="phone" placeholder="Phone">
+            <textarea placeholder="What is your Query?"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div class="section-title mt-4">
+        <h4>Back to the Contact Directory <a class="btn btn-primary" href="contacts.html" role="button">Directory</a></h4>
       </div>
     </section>
     <script>
-      let contacts = [];
-      let currentPage = 1;
-      const itemsPerPage = 1;
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
     
-      // Load contacts
+      const slug = getQueryParam('org');
+    
       fetch('contacts.json')
         .then(response => response.json())
         .then(data => {
-          contacts = data;
-          renderPagination();
-          displayContact(currentPage);
+          const contact = data.find(c => 
+            c.name.toLowerCase().replace(/\s+/g, '-') === slug
+          );
+    
+          if (contact) {
+            document.getElementById('orgName').innerText = contact.name;
+            document.getElementById('orgCategory').innerText = contact.category;
+            document.getElementById('orgAddress').innerText = contact.address;
+            document.getElementById('orgContact').innerText = contact.contact || 'Not available';
+            document.getElementById('orgEmail').innerText = contact.email || 'Not available';
+          } else {
+            document.querySelector('.contact-container').innerHTML = '<p>Contact not found.</p>';
+          }
         })
-        .catch(error => console.error('Error loading contacts:', error));
-    
-      // Show single contact per page
-      function displayContact(page) {
-        const container = document.getElementById('contactContainer');
-        container.innerHTML = '';
-    
-        const index = (page - 1);
-        if (contacts[index]) {
-          const contact = contacts[index];
-          const card = document.createElement('div');
-          card.className = 'contact-card';
-          card.innerHTML = `
-            <div class="contact-image"></div>
-            <div class="contact-details">
-              <p><strong>Organization Name:</strong> ${contact.name}</p>
-              <p><strong>Category:</strong> ${contact.category}</p>
-              <p><strong>Address of Organization:</strong> ${contact.address}</p>
-              <button onclick="viewDetails(${index})" class="view-button">View Details</button>
-            </div>
-          `;
-          container.appendChild(card);
-        }
-      }
-    
-      // Render pagination numbers + next
-      function renderPagination() {
-      const pagination = document.querySelector('.pagination');
-      pagination.innerHTML = '';
-
-      const totalPages = contacts.length; // 1 contact per page
-      const maxVisibleButtons = 10;
-
-      const currentGroup = Math.ceil(currentPage / maxVisibleButtons);
-      const startPage = (currentGroup - 1) * maxVisibleButtons + 1;
-      let endPage = currentGroup * maxVisibleButtons;
-      endPage = endPage > totalPages ? totalPages : endPage;
-
-      // Previous group button
-      const prevGroupBtn = document.createElement('button');
-      prevGroupBtn.innerText = 'Previous';
-      prevGroupBtn.disabled = currentGroup === 1;
-      prevGroupBtn.addEventListener('click', () => {
-        if (currentGroup > 1) {
-          currentPage = startPage - maxVisibleButtons;
-          displayContact(currentPage);
-          renderPagination();
-        }
-      });
-      pagination.appendChild(prevGroupBtn);
-
-      // Number buttons for this group
-      for (let i = startPage; i <= endPage; i++) {
-        const btn = document.createElement('button');
-        btn.innerText = i;
-        btn.className = (i === currentPage) ? 'active' : '';
-        btn.addEventListener('click', () => {
-          currentPage = i;
-          displayContact(currentPage);
-          renderPagination();
-        });
-        pagination.appendChild(btn);
-      }
-
-      // Next group button
-      const nextGroupBtn = document.createElement('button');
-      nextGroupBtn.innerText = 'Next';
-      nextGroupBtn.disabled = endPage >= totalPages;
-      nextGroupBtn.addEventListener('click', () => {
-        if (endPage < totalPages) {
-          currentPage = endPage + 1;
-          displayContact(currentPage);
-          renderPagination();
-        }
-      });
-      pagination.appendChild(nextGroupBtn);
-    }
-    
-      function slugify(text) {
-        return text.toLowerCase().replace(/\s+/g, '-');
-      }
-    
-      function viewDetails(index) {
-        const contact = contacts[index];
-        localStorage.setItem('selectedContact', JSON.stringify(contact));
-        const slug = slugify(contact.name);
-        window.location.href = `contact-detail.html?org=${slug}`;
-      }
+        .catch(err => console.error('Error loading contacts:', err));
     </script>
-      <div class="section-title mt-4">
-        <h4>For advance contact directory details please vist here <a class="btn btn-primary" href="search.html" role="button">Search Directory</a></h4>
-      </div>
 
     <!-- End Breadcrumbs -->
   </main>
@@ -342,7 +320,7 @@
           &copy; Copyright <strong><span>The Voice of Azamgarh</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          Designed by <a href="https://thevoiceofazamgarh.com/" target="_blank"> In-House IT</a>
+          Designed by <a href="https://voiceofazamgarh.com/" target="_blank"> In-House IT</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
